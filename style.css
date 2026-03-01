@@ -2,23 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;600&display=swap');
 
 :root {
-  /* Stark, gallery white */
-  --background-color: rgba(255, 255, 255, 1);  
+  /* A sophisticated 'Concrete Sage' - Muted gray with a hint of olive/green */
+  --background-color: rgba(228, 230, 225, 1);  
   
-  /* Obsidian black for sharp contrast */
-  --font-color: rgba(10, 10, 10, 1);           
+  /* Deep Obsidian for sharp, legible text */
+  --font-color: rgba(28, 30, 26, 1);           
   
-  /* A dark slate gray for subtle hover effects */
-  --hover-color: rgba(60, 60, 60, 1);
+  /* A darker 'Forest Moss' for interactive elements */
+  --hover-color: rgba(74, 79, 68, 1);
 
-  /* Deep black for all headers */
+  /* Solid black for that bold XEDRA branding */
   --header-color: rgba(0, 0, 0, 1); 
   
-  /* Solid white for banners to keep it clean */
-  --banner-color: rgba(255, 255, 255, 1); 
+  /* Keep the banner slightly lighter than the background for a subtle lift */
+  --banner-color: rgba(255, 255, 255, 0.85); 
   
-  /* Black text for banner */
-  --banner-font: rgba(0, 0, 0, 1); 
+  /* Dark font for the banner */
+  --banner-font: rgba(28, 30, 26, 1); 
 }
   
  /* ========================================
