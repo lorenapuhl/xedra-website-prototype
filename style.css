@@ -1,0 +1,815 @@
+ /* Import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  /* Stark, gallery white */
+  --background-color: rgba(255, 255, 255, 1);  
+  
+  /* Obsidian black for sharp contrast */
+  --font-color: rgba(10, 10, 10, 1);           
+  
+  /* A dark slate gray for subtle hover effects */
+  --hover-color: rgba(60, 60, 60, 1);
+
+  /* Deep black for all headers */
+  --header-color: rgba(0, 0, 0, 1); 
+  
+  /* Solid white for banners to keep it clean */
+  --banner-color: rgba(255, 255, 255, 1); 
+  
+  /* Black text for banner */
+  --banner-font: rgba(0, 0, 0, 1); 
+}
+  
+ /* ========================================
+ FONTS
+ ======================================== */
+
+/* MAIN TITLE <h1> tag (for screens larger than 900px)
+* IMPORTANT: h1 sizing overriden in media queries for different screen widths*/
+
+h1 {                             /* Styles for the main heading */
+  font-family: 'Syne', sans-serif; /* Uses Tenor Sans, falls back to sans-serif */
+  font-weight: 400;               /* Tenor Sans typically uses a regular weight for this look */
+  letter-spacing: 0.2em;          /* Adds wide spacing to match the 'Z A N N A' style */
+  color: var(--header-color);   
+  font-size: 7vw;
+}
+
+body {
+  /* Styles for the main body element */
+  background-color: var(--background-color);    /* Sets entire page background to Light Brown */
+  color: var(--font-color);              /* Sets text to Dark Brown for readability */
+  font-family: 'Inter', sans-serif; /* Uses Montserrat font, falls back to any sans-serif */
+  text-align: center;             /* Centers all text in the body */
+  padding-bottom: 130px;
+  margin-top: 70px; /* Adjust the 50px to whatever height you need */
+}
+
+
+/* ========================================
+   GENERAL STYLES
+======================================== */
+
+html {
+  scroll-behavior: smooth; /* Makes all internal jumps feel fluid and expensive */
+}
+
+* {                               /* Selects ALL elements on the page */
+  margin: 0;                      /* Removes default margin spacing from all elements */
+  box-sizing: border-box;         /* Includes padding and border in element's total width/height */
+  padding: 0;                     /* Removes default padding spacing from all elements */
+  text-align: center;             /* Centers all text content by default */
+}
+ 
+ nav {                            /* Styles for the navigation container */
+  display: flex;                  /* Uses flexbox layout for the nav */
+  justify-content: center;        /* Centers the ul inside the nav horizontally */
+}
+
+nav ul {                          /* Styles for unordered lists inside navigation */
+  list-style: none;               /* Removes bullet points from list items */
+  display: flex;                  /* Displays list items in a horizontal row */
+  gap: 20px;                      /* Adds 20px space between each list item */
+  padding: 20px;                  /* Adds 20px space inside the ul around all sides */
+}
+
+nav a {                           /* Styles for anchor links inside navigation */
+  color:  var(--font-color);                   /* Sets link text color to white */
+  text-decoration: none;          /* Removes the default underline from links */
+  font-weight: bold;              /* Makes link text bold */
+}
+
+/* HOVER EFFECTS for 
+ * :hover is a pseudo-class (state-based selector) --> Applies styles when mouse hovers over the element-links 
+*/
+nav a:hover {                     /* Applies when mouse hovers over navigation links */
+  color: var(--hover-color);                    /* Changes link color to medium gray on hover */
+}
+
+p {                               /* Styles for paragraph elements */
+  margin: 20px;                   /* Adds 20px margin around all sides of paragraphs */
+  color: var(--font-color);                       /* Sets paragraph text color to light gray */
+}
+
+.fine-line {
+  border: 0;
+  height: 1px;
+  background: var(--font-color); /* Use a soft grey or your brand color */
+  width: 200px;       /* Keeps it "minimalist" and centered */
+  margin: 10px auto; /* Adjusts spacing above/below and centers it */
+}
+
+/* ========================================
+   BENEFITS (Slider Version)
+   ======================================== */
+   
+/* Entire benefits section */   
+.benefits {
+  text-align: center;
+  padding: 2em 0;
+  overflow: hidden; /* Prevents page-wide horizontal scrolling */
+}
+
+/* 'Ofrecemos' header*/
+.benefits h2 {
+  margin-bottom: 0.5em;
+  color: var(--font-color);
+}
+
+/* sliding container containing individual cards */
+.benefits-container {
+  display: flex !important;
+  flex-direction: row !important; /* Force horizontal even on mobile */
+  overflow-x: auto;             /* Enable horizontal swipe */
+  scroll-snap-type: x mandatory; /* Magnet effect */
+  gap: 1.5em;
+  padding: 1.5em 15% 3em 15%;   /* 15% side padding for the "center" effect */
+  scrollbar-width: none;        /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;     /* Hide scrollbar Edge */
+}
+
+.benefits-container::-webkit-scrollbar {
+  display: none;                /* Hide scrollbar Chrome/Safari */
+}
+
+/* Individual benefits card */
+.benefit-item {
+  flex: 0 0 75%;                /* Card takes up 75% of view */
+  scroll-snap-align: center;    /* Magnet snap to center */
+  padding: 2em 1.5em;
+  border-radius: 0;             /* ZANNA sharp edges */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.benefit-item:hover {
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- COMPUTER SCREENS (Desktop adjustments) --- */
+@media (min-width: 769px) {
+  .benefit-item {
+    flex: 0 0 350px;            /* Fixed elegant width on computers */
+  }
+  
+  .benefits-container {
+    padding-inline: 20%;        /* More "peek" space on larger screens */
+  }
+}
+
+/* ========================================
+   CLASS SCHEDULES
+   ======================================== */
+/* Main schedule section in index.html*/
+.schedule-section {
+  max-width: 900px;
+  margin: 0 auto
+}
+
+/* 'Horarios' header*/
+.schedule-section h2 {
+  margin-bottom: 2em;
+  color: var(--font-color);
+  margin-top: 5em
+}
+/*Container for day "Tabs" (the buttons labeled DOM 22, LUN 23, MAR 24, etc.) in index.html*/
+.day-selector {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 30px;
+  /*border-bottom: 1px solid var(--header-color);*/
+  margin-bottom: 20px;
+}
+
+/* Tab for they day's name on top of the class schedules */
+.day-tab {
+  cursor: pointer;
+  padding-bottom: 8px;
+  opacity: 0.5;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Active day */
+.day-tab.active {
+  opacity: 1;
+  font-weight: bold;
+  border-bottom: 2px solid var(--header-color);
+}
+
+/*A long horizontal row of slides (days) that moves back and forth in index.html*/
+.schedule-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* You already have this */
+  -webkit-overflow-scrolling: touch; /* Makes the magnet feel smoother on iPhones */
+  scrollbar-width: none; /* Hide scrollbar for Chrome/Safari below */
+  margin-bottom: 80px; /* Pushes the next section further down */
+}
+
+.schedule-slider::-webkit-scrollbar { display: none; }
+
+/* Main container for one class entry (e.g., Yin Yoga) in schedule.js */
+.schedule-row {
+  display: flex;
+  flex-direction: row;   /* Stacks the text and button vertically */
+  align-items: center;       /* Centers the text and button horizontally */
+  padding: 1rem 1.5rem; /* 15px top/bottom, 5% left/right */
+  border-bottom: 1px solid rgba(61, 61, 61, 0.1); /* Adds a very light divider line */
+  justify-content: space-between; /* Pushes text to left and buttons to right */
+  transition: background-color 0.6s ease;
+  box-sizing: border-box;
+  max-width: 700px;
+  margin: 0 auto; /* Centers the restricted row within the section */
+}
+
+/* Class-info container with class name, schedule and teacher*/
+.class-info {
+  flex: 1; 
+  text-align: left;
+  padding-right: 20px; /* Space between text and the dot/button area */
+  min-width: 0; /*Allows text to truncate or wrap instead of pushing the button */
+  padding: 0;
+}
+
+/* Class-info container with class name, schedule and teacher*/
+.class-info h3 {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin: 0 0 5px 0;         /* Removes top margin, adds space below for the time */
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+/* Time and instructor */
+.class-info p {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);  margin: 4px 0;              /* Tight spacing between the time line and instructor line */
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+/* Subtle hover effect for the whole row 
+.schedule-row:hover {
+  background-color: rgba(255, 255, 255, 0.3); 
+} */
+
+/* Remove the line from the last class so it doesn't look cut off */
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+/* Container for all class rows of a specific day in schedule.js*/
+.day-environment {
+  min-width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;   /* The "magnet" locks to the start of the element */
+  scroll-snap-stop: always;    /* Prevents the user from accidentally skipping days */
+  overflow: hidden;  /* Prevents any internal "leakage" of width */
+}
+
+/* Container to keep dot and reserve-button aligned */
+.class-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em; /* Space between the green dot and the button */
+  /*width: 8em;  Fixed width ensures all buttons line up vertically */
+  flex-shrink: 0; /* Prevents the button area from being squeezed */
+  min-width: auto;
+  margin-left:1rem;
+  width: auto;
+}
+
+/* The Base Shape of the dot */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Makes it a perfect circle */
+  display: inline-block;
+}
+
+/* The Green Color logic */
+.status-dot.green {
+  background-color: #4CAF50; /* A clean, "Yoga" Zen green */
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5); /* Optional: Subtle glow */
+}
+
+/* Ready for future status colors */
+.status-dot.orange { background-color: #FF9800; }
+.status-dot.red { background-color: #F44336; }
+
+/* Reserve button */
+.btn-reserve {
+  background-color: var(--header-color);
+  color: #FFFFFF; 
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.85rem; /* Slightly smaller base font */
+}
+
+/* This targets ONLY buttons that have the 'disabled' attribute */
+.btn-reserve:disabled {
+  background-color: var(--header-color);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-reserve:hover {
+  opacity: 0.8;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-reserve:active {
+  transform: translateY(0); /* "Pressed" look when clicking */
+}
+
+/* Targets screens wider than 900px */
+@media (min-width: 900px) {
+  .schedule-row {
+    gap: 4rem;              /* Creates a consistent, elegant space between them */
+  }
+
+  .day-environment {
+  border-radius: 0;          /* Sharp corners for the boutique look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+}
+  .class-info {
+    flex: 0 1 auto;         /* Prevents the text from taking up all empty space */
+    text-align: right;      /* Optional: aligns text toward the button for a premium look */
+  }
+}
+
+/* Targets screens between 400px and 899px */
+@media screen and (min-width: 400px) and (max-width: 899px) {
+  .schedule-row {
+    /* 1. Reset padding to match your standard look */
+    padding: 1rem 1.5rem; 
+    /* 2. Set a comfortable width that keeps content centered */
+    /* Instead of 100%, we use 90% to create a natural side gutter */
+    width: 90%; 
+    max-width: 600px; 
+    /* 3. Ensure the horizontal centering is active */
+    margin: 0 auto;
+    /* 4. Ensure space stays balanced between text and button */
+    justify-content: space-between;
+  }
+
+  .class-info {
+    /* Ensure text stays left-aligned within its half of the centered row */
+    text-align: left;
+  }
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+   
+/* Entire testimonials container */
+.testimonials {
+  text-align: center;
+  padding: 4em 0; /* Vertical breathing room */
+  overflow: hidden; /* Keeps the slider from causing page horizontal scroll */
+}
+/* Header 'Nuestra comunidad opina */
+.testimonials h2 {
+  margin-bottom: 2em;
+  color: var(--font-color);
+}
+
+/* --- THE SLIDER TRACK (The Horizontal Axis) --- */
+/* Sliding container with all testimonial cards */
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;          /* Enables the actual swipe/scroll */
+  scroll-snap-type: x mandatory; /* The "Magnet" effect to snap boxes in place */
+  gap: 1.5em;                /* Space between cards based on text size */
+
+  padding: 2em 15%;   /*Horizontal padding allows the first/last cards 
+     to sit in the center of the screen */
+  
+  /* Matches the padding so the snap point is also centered */
+  scroll-padding-inline: 15%;
+  scrollbar-width: none;     /* Hides scrollbar on Firefox */
+  -ms-overflow-style: none;  /* Hides scrollbar on Edge */
+}
+
+/* Hides scrollbar on Chrome, Safari, and Opera */
+.testimonial-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual testimonial cards*/
+.testimonial-card {
+  flex: 0 0 75%;             /* Card takes 85% of screen (shows "peek" of next) */
+  scroll-snap-align: center; /* Ensures card snaps to middle of screen */
+  padding: 2.5em 1.5em;      /* Relative padding that grows with text */
+  border-radius: 0;          /* Sharp corners for the boutique look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-card:hover {
+  opacity: 0.8;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Testimonial quotes */
+.testimonial-card p {
+  line-height: 1.6;
+  max-width: 45ch;           /* Typography "Golden Range" */
+  margin: 0 auto 1em auto;
+  font-style: italic;        /* Distinguishes the quote from other text */
+}
+
+/* Testimonial author */
+.testimonial-card span {
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85em;
+  color: var(--font-color);
+}
+
+/* --- COMPUTER SCREENS (Min-width: 769px) --- */
+@media (min-width: 769px) {
+  .testimonial-slider {
+    justify-content: center; /* Centers cards if there are only a few */
+    padding: 2em 10%;       /* Larger side padding on desktop */
+  }
+
+  .testimonial-card {
+    flex: 0 0 450px;         /* Fixed elegant width on large screens */
+    padding: 3.5em 2.5em;    /* More luxurious spacing on desktop */
+  }
+}
+
+/* ========================================
+   PRICING SECTION
+   ======================================== */
+
+.pricing {
+  text-align: center;
+  padding: 2em 0;
+  overflow: hidden;
+}
+
+.pricing h2 {
+  margin-bottom: 0.5em;
+  color: var(--font-color);
+}
+
+/* --- THE SLIDER TRACK --- */
+.pricing-slider {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5em;
+  padding: 1.5em 15% 3em 15%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pricing-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual pricing cards */
+.pricing-card {
+  flex: 0 0 75%;
+  scroll-snap-align: center;
+  padding: 2em 1.5em;
+  border-radius: 0; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card h3 {
+  color: var(--font-color);
+  font-size: 1.2 em;
+}
+
+.pricing-card p {
+  color: var(--font-color);
+  font-size: 1.2 em;
+  margin-bottom: 0.5em;
+}
+
+/* Price Styling */
+.pricing-card .price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+/* Button Styling */
+.cta-btn {
+  background: var(--header-color);
+  color: #fff;
+  border: none;
+  padding: 0.8em 2.5em;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  margin-top: 2em;  /*adds space above*/
+  align-self: center; /* keeps button centered */
+  min-width: 160px  /*ensures button does't get too small on small screens */
+}
+
+.cta-btn:active{
+  transform: translateY(0); /* "Pressed" look when clicking */
+}
+
+.cta-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- COMPUTER SCREENS --- */
+@media (min-width: 769px) {
+  .pricing-slider {
+    justify-content: center;
+    padding-inline: 20%;
+  }
+
+  .pricing-card {
+    flex: 0 0 350px; /* Slimmer cards for desktop to fit more side-by-side */
+  }
+}
+
+/* ========================================
+   FLOATING BANNER
+   ======================================== */
+
+/* Floating banner container - this creates a bar that stays at the bottom of the screen */
+.floating-banner {
+  position: fixed;  /* Makes the banner stay in one place even when scrolling */
+  bottom: 0;        /* Positions the banner at the very bottom of the viewport */
+  left: 0;          /* Aligns banner to the left edge */
+  width: 100%;      /* Makes banner stretch across the full width of the screen */
+  background: var(--banner-color);  /* Uses a CSS variable for banner background color - you can replace this with a specific color like #000000 or #333 */
+  backdrop-filter: blur(10px); /* Adds a frosted glass effect by blurring content behind the banner */
+  border-top: 1px solid #eaeaea; /* Adds a thin light gray line at the top of banner */
+  padding: 15px 20px; /* Adds space inside banner: 15px top/bottom, 20px left/right */
+  z-index: 1000; /* Controls stacking order - higher number means banner appears above other content */
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.3); /* Adds shadow above banner: X offset, Y offset, blur, color */
+  transform: translateY(100%);      /* Pushes the banner completely off-bottom */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Professional "springy" ease */
+}
+
+.floating-banner.visible {
+  transform: translateY(0);         /* Brings it back to its natural position */
+}
+
+/* Container for all the content inside the banner (text and button) */
+.banner-content {
+  display: flex;           /* Uses flexbox layout to arrange children horizontally */
+  justify-content: space-between; /* Pushes children apart: text on left, button on right */
+  align-items: center;      /* Vertically centers all children in the container */
+  max-width: 1200px;        /* Prevents content from stretching too wide on large screens */
+  margin: 0 auto;          /* Centers the content block horizontally (0 top/bottom, auto left/right) */
+}
+
+/* Styles for the paragraph text inside the banner */
+.banner-content p {
+  margin: 0;               /* Removes default paragraph margins */
+  font-size: 0.95rem;      /* Sets text size to 95% of root font size (usually about 15px) */
+  font-weight: 500;        /* Sets text to medium boldness (500 out of 900) */
+  color: var(--banner-font); /* Uses CSS variable for text color - replace with color like #ffffff */
+}
+
+/* Container for the button and any other right-side elements */
+.cta-container {
+  display: flex;           /* Arranges button and other elements horizontally */
+  align-items: center;      /* Vertically centers items in the container */
+  gap: 20px;               /* Adds 20px space between items (like between button and icon if added) */
+}
+
+/* Styles for the call-to-action button */
+.cta-button {
+  background: var(--banner-font); /* Replace this with your button color, e.g., #ff0000 for red */
+  color: white;            /* Text color inside button - change to your preference */
+  padding: 10px 20px;      /* Space inside button: 10px top/bottom, 20px left/right */
+  text-decoration: none;    /* Removes underline from link */
+  border-radius: 50px;     /* Makes button edges super round for pill shape (use 5px for slightly round, 0 for square) */
+  font-weight: 600;        /* Makes text semi-bold (600 out of 900) */
+  font-size: 0.85rem;      /* Sets text size smaller (about 13-14px) */
+  text-transform: uppercase; /* Transforms text to ALL CAPS */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* This makes the hover look smooth */
+}
+
+.cta-button:hover {
+  background-color: #1A1A1A; /* Darkens slightly */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query - only applies styles when screen width is 768px or less (mobile devices) */
+@media (max-width: 768px) {
+  /* Mobile styles for banner content container */
+  .banner-content {
+    flex-direction: column; /* Stacks children vertically instead of horizontally */
+    gap: 10px;              /* Adds space between stacked elements */
+    text-align: center;     /* Centers text horizontally */
+  }
+  /* Note: The button will automatically stack below text due to flex-direction: column */
+}
+
+/* ========================================
+   SLIDE MENU BASE STYLES
+   ======================================== */
+
+/* Base styles for slide menu - these apply on ALL devices */
+.slide-menu {                     /* Styles for the sliding menu container (BASE CLASS)*/
+  position: fixed;                /* Positions menu relative to viewport (stays in place when scrolling) */
+  top: 0;                         /* Aligns menu to the top of the screen */
+  width: 280px;                   /* Sets menu width to 280 pixels */
+  height: 100vh;                  /* Sets menu height to 100% of viewport height */
+  background-color: var(--font-color);        /* Sets menu background */
+  z-index: 1001;                  /* Places menu above most other elements (higher number = more forward) */
+  padding: 70px 20px 30px 20px;   /* Adds 70px top, 20px left/right, 30px bottom padding */
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);  /* Adds shadow to right side: 2px right, 0 down, 15px blur, 50% opaque black */
+  overflow-y: auto;               /* Adds vertical scrollbar if content overflows */
+  text-align: left;               /* Left-aligns text in the menu */
+  left: -100%;
+  transition: left 0.4s ease-in;   /* SLOWER exit when class is removed */
+}
+
+.slide-menu.open {                /* Applied when menu has "open" class via JavaScript (STATE CLASS) */
+  left: 0;                        /* Moves menu to 0 from left (slides it onto screen) */
+  transition: left 0.7s ease-out;  /* FAST entrance when class is added */
+}
+
+/* Menu button base styles */
+.menu-button {                    /* Styles for the hamburger menu button */
+  position: fixed;                /* Positions button relative to viewport (stays in place) */
+  top: 20px;                      /* Places button 20px from top of screen */
+  left: 20px;                     /* Places button 20px from left of screen */
+  z-index: 1000;                  /* Places button above most elements (but below slide-menu) */
+  cursor: pointer;                /* Changes cursor to pointer/hand when hovering */
+  padding: 12px;                  /* Adds 12px padding inside button on all sides */
+  background-color: var(--font-color); ;  /* Sets background to black with 90% opacity */
+  border-radius: 5px;             /* Rounds the corners by 5 pixels */
+  flex-direction: column;         /* Stacks child elements (bars) vertically */
+  gap: 5px;                       /* Adds 5px space between each bar */
+  display: none;                  /* Hidden by default (shown only on mobile) */
+  display: flex !important;  /* Makes hamburger button visible on mobile */
+  border: none; /* Removes the default border */
+  outline: none;       /* Removes the blue/black focus ring */
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.menu-button .bar {               /* Styles for the three bars inside hamburger button (DESCENDANT SELECTOR) */
+  width: 25px;                    /* Sets bar width to 25 pixels */
+  height: 3px;                    /* Sets bar height to 3 pixels */
+  background-color: white;        /* Sets bar color to white */
+}
+
+/* Overlay base styles */
+.overlay {                        /* Styles for the dark overlay when menu is open */
+  position: fixed;                /* Positions overlay relative to viewport */
+  top: 0;                         /* Starts overlay at top of screen */
+  left: 0;                        /* Starts overlay at left of screen */
+  width: 100%;                    /* Makes overlay full screen width */
+  height: 100%;                   /* Makes overlay full screen height */
+  background-color: rgba(var(--background-color-rgb), 0.9);
+  z-index: 999;                   /* Places overlay below menu (1001) but above other content */
+  display: none;                  /* Hidden by default */
+  backdrop-filter: blur(3px);     /* Adds 3px blur effect to content behind overlay */
+}
+
+.overlay.show {                   /* Applied when overlay has "show" class (via JavaScript) */
+  display: block;                 /* Makes overlay visible as block */
+}
+
+/* Menu content styles */
+.menu-content {                   /* Styles for the content container inside slide menu */
+  text-align: left;               /* Left-aligns all text in menu content */
+  color: var(--background-color);                   /* Sets text color to white */
+}
+
+.menu-content h3 {                /* Styles for h3 headings inside menu content */
+  color: var(--background-color);                   /* Sets heading text color to white */
+  font-size: 18px;                /* Sets font size to 18 pixels */
+  margin: 20px 0 15px 0;          /* Adds 20px top, 15px bottom margin (0 left/right) */
+  text-transform: uppercase;      /* Transforms text to ALL CAPS */
+  letter-spacing: 2px;            /* Adds 2px space between letters */
+  border-bottom: 2px solid var(--background-color);  /* Adds 2px solid dark gray line below heading */
+  padding-bottom: 8px;            /* Adds 8px padding below text before border */
+  text-align: left;               /* Left-aligns the heading text */
+}
+
+.menu-links {                     /* Styles for the menu links list */
+  list-style: none;               /* Removes bullet points from list */
+  margin: 0;                      /* Removes default margin */
+  padding: 0;                     /* Removes default padding */
+}
+
+.menu-links li {                  /* Styles for each list item in menu */
+  margin: 0;                      /* Removes default margin */
+  border-bottom: 1px solid var(--background-color);  /* Adds 1px solid very dark gray line below each item */
+}
+
+.menu-links a {                   /* Styles for anchor links inside menu */
+  display: block;                 /* Makes link a block element (takes full width) */
+  padding: 15px 0;                /* Adds 15px padding top and bottom (0 left/right) */
+  color: var(--background-color);                    /* Sets link color to light gray */
+  text-decoration: none;          /* Removes underline from links */
+  font-size: 16px;                /* Sets font size to 16 pixels */
+  letter-spacing: 1px;            /* Adds 1px space between letters */
+  text-align: left;               /* Left-aligns the link text */
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (SCREEN WIDTH) - MEDIA QUERIES
+   ========================================================= */
+
+/* Tablet Styles (screens smaller than 900px) */
+@media screen and (max-width: 900px) {  /* Applies only when screen width is 900px or less */
+  h1 {
+    font-size: 8vw;  /* Smaller title for tablets */  /* Reduces h1 size from 72px to 48px */
+  }
+  
+  nav ul {
+    gap: 15px;  /* Reduce space between nav items */  /* Reduces gap from 20px to 15px */
+    padding: 15px;  /* Reduces padding from 20px to 15px */
+    flex-wrap: wrap;  /* Allow nav items to wrap if needed */  /* Items move to next line if no space */
+    justify-content: center;  /* Centers wrapped items */
+  }
+  
+  p {
+    font-size: 16px;  /* Reduces paragraph font size */
+    margin: 15px;  /* Reduces paragraph margin */
+  }
+}
+
+/* Mobile Styles (screens smaller than 600px) */
+@media screen and (max-width: 600px) {  /* Applies only when screen width is 600px or less */
+  h1 {
+    font-size: 10vw;  /* Even smaller for mobile */  /* Further reduces h1 size to 36px */
+    letter-spacing: 2px;  /* Reduce letter spacing */  /* Reduces space between letters */
+    margin-top: 80px;  /* Adds margin above the h1 instead of padding */
+  }
+  
+  nav ul {
+    gap: 10px;  /* Further reduces gap to 10px */
+    padding: 10px;  /* Further reduces padding to 10px */
+    flex-direction: column;  /* Stack nav items vertically */  /* Changes from row to column layout */
+    align-items: center;  /* Centers items vertically in column */
+  }
+  
+  nav a {
+    display: block;  /* Make links full width for easier tapping */  /* Links take full width */
+    padding: 8px 0;  /* Adds vertical padding for easier tapping */
+    font-size: 16px;  /* Sets mobile link font size */
+  }
+  
+  p {
+    font-size: 14px;  /* Further reduces paragraph font size */
+    margin: 10px;  /* Further reduces paragraph margin */
+  }
+
+}
+
+/* Small Mobile Styles (screens smaller than 400px) */
+@media screen and (max-width: 400px) {  /* Applies only on very small screens */
+  h1 {
+    font-size: 10vw;  /* Smallest size for very small phones */  /* Further reduces h1 to 28px */
+  }
+  
+  nav ul {
+    gap: 5px;  /* Minimum gap between nav items */
+  }
+}
